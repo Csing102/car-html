@@ -36,11 +36,19 @@
 
     // Create the road
     const roadGeometry = new THREE.PlaneGeometry(1000, 1000);
-    const roadMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const roadMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
     const road = new THREE.Mesh(roadGeometry, roadMaterial);
     road.rotation.x = -Math.PI / 2;
     road.position.set(0, -5, 0);
     scene.add(road);
+
+    // Create the ground
+    const groundGeometry = new THREE.PlaneGeometry(1000, 1000);
+    const groundMaterial = new THREE.MeshBasicMaterial({ color: 0x33cc33, transparent: true, opacity: 0.5 });
+    const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+    ground.rotation.x = -Math.PI / 2;
+    ground.position.set(0, -10, 0);
+    scene.add(ground);
 
     // Create the cars
     const carGeometry = new THREE.BoxGeometry(2, 1, 1);
